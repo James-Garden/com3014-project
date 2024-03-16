@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import uk.ac.surrey.com3014.jg01314.AbstractIntegrationTest;
 import uk.ac.surrey.com3014.jg01314.user.User;
@@ -68,5 +70,35 @@ class SessionControllerTest extends AbstractIntegrationTest {
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
     assertThat(response.getHeaders().get(HttpHeaders.SET_COOKIE))
         .contains("SessionID=" + createdSession.getId() + "; Secure; HttpOnly");
+  }
+
+  @Test
+  void deleteSession_NonExistent_AssertNotFound() {
+    var sessionId = SessionIdGenerator.generateSessionId();
+    var entity = getHttpEntityWithSessionCookie(sessionId);
+
+    when(sessionService.findSession(sessionId)).thenReturn(Optional.empty());
+
+    var response = testRestTemplate.exchange("/api/session", HttpMethod.DELETE, entity, Void.class);
+
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+  }
+
+  @Test
+  void deleteSession_WhenExists_AssertOk() {
+    var session = new Session(SessionIdGenerator.generateSessionId(), 1);
+    var entity = getHttpEntityWithSessionCookie(session.getId());
+
+    when(sessionService.findSession(session.getId())).thenReturn(Optional.of(session));
+
+    var response = testRestTemplate.exchange("/api/session", HttpMethod.DELETE, entity, Void.class);
+
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+  }
+
+  private HttpEntity<Void> getHttpEntityWithSessionCookie(String sessionId) {
+    var headers = new HttpHeaders();
+    headers.add("Cookie", "SessionID=" + sessionId);
+    return new HttpEntity<>(null, headers);
   }
 }
