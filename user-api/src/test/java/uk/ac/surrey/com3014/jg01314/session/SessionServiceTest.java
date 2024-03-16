@@ -2,7 +2,9 @@ package uk.ac.surrey.com3014.jg01314.session;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -23,9 +25,6 @@ class SessionServiceTest {
   private SessionService sessionService;
 
   @Captor
-  private ArgumentCaptor<String> sessionIdCaptor;
-
-  @Captor
   private ArgumentCaptor<Session> sessionCaptor;
 
   private final User user = UserTestUtil.userWithId();
@@ -44,5 +43,25 @@ class SessionServiceTest {
     assertThat(savedSession)
         .extracting(Session::getId)
         .isNotNull();
+  }
+
+  @Test
+  void findSession() {
+    var sessionId = SessionIdGenerator.generateSessionId();
+    var session = new Session(sessionId, 1);
+    when(sessionRepository.findById(sessionId)).thenReturn(Optional.of(session));
+
+    var sessionOptional = sessionService.findSession(sessionId);
+
+    assertThat(sessionOptional).contains(session);
+  }
+
+  @Test
+  void deleteSession() {
+    var session = new Session(SessionIdGenerator.generateSessionId(), 1);
+
+    sessionService.deleteSession(session);
+
+    verify(sessionRepository).delete(session);
   }
 }
