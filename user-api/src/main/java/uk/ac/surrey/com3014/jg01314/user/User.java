@@ -23,7 +23,7 @@ public class User {
   public User() {
   }
 
-  User(String username, String email, String passwordHash) {
+  public User(String username, String email, String passwordHash) {
     this.username = username;
     this.email = email;
     this.passwordHash = passwordHash;
