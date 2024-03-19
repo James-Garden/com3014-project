@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 224, 255, 0) 0%,
+        rgba(0, 224, 255, 0.18) 100%
+      ),
+      linear-gradient(
+        178.54deg,
+        rgba(255, 92, 0, 0) 1.24%,
+        rgba(255, 92, 0, 0.1755) 98.81%
+      );
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    background-position: left, right;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  a {
+    text-decoration: none;
+    line-height: 1;
+  }
+  
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  a {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    color: #000;
+  }
+  
+  /* header has user action */
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 32px 16px 32px;
+    background: transparent;
+  }
+  
+  .header__logo {
+    width: 272px;
+    height: 120px;
+  }
+  
+  .header__logo img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .header__action {
+    display: flex;
+    gap: 16px;
+    height: fit-content;
+  }
+  
+  .header__action a {
+    font-size: 30px;
+    line-height: 34px;
+  }
+  
+  .header_signup {
+    text-decoration: underline;
+    padding: 26px;
+  }
+  
+  .header_login {
+    width: fit-content;
+    border: 4.25px solid #000;
+    padding: 26px;
+    border-radius: 8px;
+  }
+  
+  /* main content */
+  .main {
+    flex-grow: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main__slogan h1 {
+    font-size: 64px;
+    line-height: 76px;
+    text-align: center;
+  }
+  
+  .main__options {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+  
+  .main__option {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .main__option h2 {
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+  }
+  
+  .main__option .option__btn {
+    width: fit-content;
+    min-width: 168px;
+    padding: 10px 20px;
+    border: 1px solid #004e49;
+    border-radius: 24px;
+    box-shadow: 0px 0px 0px 3px #00635d40;
+    color: #00635d;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+  }
+  
+  .learn-more {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 16px;
+    color: #898989;
+  }
+  
+  .learn-more p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+  }
+  
+  .learn-more i::before {
+    font-size: 14px;
+  }
+  

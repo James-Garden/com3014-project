@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    width: 100vw;
+    height: max-content;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(
+        178.54deg,
+        rgba(255, 92, 0, 0) 1.24%,
+        rgba(255, 92, 0, 0.1755) 98.81%
+      ),
+      linear-gradient(
+        360deg,
+        rgba(0, 224, 255, 0) 0%,
+        rgba(0, 224, 255, 0.2) 100%
+      );
+  
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: left, right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  a {
+    text-decoration: none;
+    line-height: 1;
+  }
+  
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  a {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    color: #000;
+  }
+  
+  a,
+  button {
+    cursor: pointer;
+  }
+  
+  .header__logo {
+    width: 272px;
+    height: 120px;
+    align-self: start;
+    justify-self: start;
+    margin-top: 24px;
+    margin-left: 32px;
+  }
+  
+  .header__logo img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 914px;
+    margin-top: 100px;
+  }
+  
+  .header {
+    font-family: Newsreader;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 77px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .button {
+    width: 424px;
+    height: 86px;
+    padding: 0 25.5px;
+    border-radius: 8.5px;
+    background: #ff5c004d;
+    border: 4.25px solid #000000;
+    font-family: Newsreader;
+    font-size: 30px;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

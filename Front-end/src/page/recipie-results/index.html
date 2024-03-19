@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipie Results</title>
+
+    <!-- style -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- font newsreader -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- awesome icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header__logo">
+      <a href="../index.html">
+        <img src="./../../assets/images/logo.png" alt="" />
+      </a>
+    </header>
+
+    <!-- main -->
+    <div class="main">
+      <div class="main__slogan">
+        <h1>Search Results</h1>
+      </div>
+      <div class="wrapper">
+        <div class="wrapper__left">
+          <div class="container-left">
+            <h2>Filters</h2>
+
+            <div class="main__search">
+              <button
+                class="select__button"
+                role="combobox"
+                aria-labelledby="select button"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="select-dropdown"
+              >
+                <span class="selected-value">Sort by</span>
+              </button>
+              <div class="select__container">
+                <ul
+                  class="search__options select__dropdown"
+                  role="listbox"
+                  id="select__dropdown"
+                >
+                  <li class="search__option" role="option" tabindex="0">
+                    <span class="option__text">Grated Cheese</span>
+                  </li>
+                  <li class="search__option" role="option" tabindex="1">
+                    <span class="option__text">Rice</span>
+                  </li>
+                  <li class="search__option" role="option" tabindex="2">
+                    <span class="option__text">Chicken Breast</span>
+                  </li>
+                  <li class="search__option" role="option" tabindex="3">
+                    <span class="option__text">Milk</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="main__search">
+              <button
+                class="select__button"
+                role="combobox"
+                aria-labelledby="select button"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="select-dropdown"
+              >
+                <span class="selected-value">Cuisine</span>
+              </button>
+              <div class="select__container">
+                <ul
+                  class="search__options select__dropdown"
+                  role="listbox"
+                  id="select__dropdown"
+                >
+                  <li class="search__option" role="option" tabindex="0">
+                    <span class="option__text">Grated Cheese</span>
+                  </li>
+                  <li class="search__option" role="option" tabindex="1">
+                    <span class="option__text">Rice</span>
+                  </li>
+                  <li class="search__option" role="option" tabindex="2">
+                    <span class="option__text">Chicken Breast</span>
+                  </li>
+                  <li class="search__option" role="option" tabindex="3">
+                    <span class="option__text">Milk</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="filter__require">
+              <p>Dietary Requirements</p>
+              <div class="filter__options">
+                <input type="radio" id="1" name="filter" value="30" />
+                <input type="radio" id="2" name="filter" value="60" />
+                <input type="radio" id="3" name="filter" value="100" />
+              </div>
+            </div>
+
+            <img src="./../../assets/icons/checkbox.png" alt="" />
+          </div>
+        </div>
+        <div class="wrapper__right">
+          <a href="./../individual-recipie-view/index.html" class="item-right">
+            <p>(ICONS)</p>
+            <p>Cheese Quesadila</p>
+          </a>
+
+          <a href="./../individual-recipie-view/index.html" class="item-right">
+            <p>(ICONS)</p>
+            <p>Cheese Quesadila</p>
+          </a>
+
+          <a href="./../individual-recipie-view/index.html" class="item-right">
+            <p>(ICONS)</p>
+            <p>Cheese Quesadila</p>
+          </a>
+
+          <a href="./../individual-recipie-view/index.html" class="item-right">
+            <p>(ICONS)</p>
+            <p>Cheese Quesadila</p>
+          </a>
+
+          <a href="./../individual-recipie-view/index.html" class="item-right">
+            <p>(ICONS)</p>
+            <p>Cheese Quesadila</p>
+          </a>
+
+          <a href="./../individual-recipie-view/index.html" class="item-right">
+            <p>(ICONS)</p>
+            <p>Cheese Quesadila</p>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
