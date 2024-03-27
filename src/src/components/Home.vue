@@ -25,7 +25,7 @@
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
           >
-          <router-link to="/Raw"> Địt con mẹ </router-link>
+          <router-link to="/Raw"> Continue </router-link>
           </button>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
           >
-          <router-link to="/Recipie"> SinH </router-link>
+          <router-link to="/Recipie"> Continue </router-link>
           </button>
         </div>
       </div>
