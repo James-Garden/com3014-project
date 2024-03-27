@@ -110,8 +110,8 @@ export default {
   height: 100vh;
 }
 input::placeholder {
-  color: black; /* Màu sắc của placeholder */
-  font-style: italic; /* Kiểu chữ của placeholder */
+  color: black;
+  font-style: italic;
   text-align: center;
 }
 

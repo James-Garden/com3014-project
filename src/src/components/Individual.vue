@@ -78,9 +78,8 @@ export default {
     );
 }
 input::placeholder {
-  color: black; /* Màu sắc của placeholder */
-  font-style: italic; /* Kiểu chữ của placeholder */
+  color: black;
+  font-style: italic;
   text-align: center;
-  /* Các thuộc tính CSS khác */
 }
 </style>

@@ -82,8 +82,7 @@ export default {
   height: 100vh;
 }
 input::placeholder {
-  color: #9b9b9b; /* Màu sắc của placeholder */
-  font-style: italic; /* Kiểu chữ của placeholder */
+  color: #9b9b9b;
   text-align: left;
 }
 

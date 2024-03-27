@@ -159,14 +159,13 @@ export default {
     );
 }
 input::placeholder {
-  color: black; /* Màu sắc của placeholder */
-  font-style: italic; /* Kiểu chữ của placeholder */
+  color: black;
+  font-style: italic;
   text-align: left;
   font-size: 25px;
   font-family: sans-serif;
-  /* Các thuộc tính CSS khác */
 }
 .rbgabgt {
-  background-color: rgba(139, 69, 19, 0.1); /* Màu nâu nhạt với độ trong suốt */
+  background-color: rgba(139, 69, 19, 0.1);
 }
 </style>
