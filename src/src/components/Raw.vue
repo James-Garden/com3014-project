@@ -3,10 +3,14 @@
     <div class="flex">
       <div class="pt-5 pl-5">
         <div>
-          <img src="../assets/Cupboard.png" alt="" />
+          <button>
+          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+        </button>
         </div>
         <div class="ml-5">
-          <img src="../assets/Cookbook.png" alt="" />
+          <button>
+          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+        </button>
         </div>
       </div>
       <div class="flex justify-center gap-10 absolute right-3 top-2">
@@ -79,8 +83,8 @@ export default {
   height: 100vh;
 }
 input::placeholder {
-  color: #9b9b9b; /* Màu sắc của placeholder */
-  font-style: italic; /* Kiểu chữ của placeholder */
+  color: #9b9b9b;
+  font-style: italic;
   text-align: left;
 }
 

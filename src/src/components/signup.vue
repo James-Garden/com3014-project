@@ -2,12 +2,16 @@
   <div class="containerLogin">
     <div class="pt-5 pl-5">
       <div>
-        <img src="../assets/Cupboard.png" alt="" />
+          <button>
+          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+        </button>
+        </div>
+        <div class="ml-5">
+          <button>
+          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+        </button>
+        </div>
       </div>
-      <div class="ml-5">
-        <img src="../assets/Cookbook.png" alt="" />
-      </div>
-    </div>
     <div class="flex justify-center mt-10 px-10">
       <img
         class="w-[894px] h-[77px]"

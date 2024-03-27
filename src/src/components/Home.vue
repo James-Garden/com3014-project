@@ -3,10 +3,14 @@
     <div class="left-bg w-1/2 h-screen">
       <div class="pt-5 pl-5">
         <div>
-          <img src="../assets/Cupboard.png" alt="" />
+          <button>
+          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+        </button>
         </div>
         <div class="ml-5">
-          <img src="../assets/Cookbook.png" alt="" />
+          <button>
+          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+        </button>
         </div>
       </div>
 
