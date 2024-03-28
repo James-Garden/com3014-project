@@ -37,10 +37,10 @@
     <div class="mt-10 flex justify-center">
       <div>
         <input
-          type="password"
-          id="password"
+          type="text"
+          id="text"
           class="!w-[914px] !h-[49px] rounded-md pl-5"
-          v-model="password"
+          v-model="text"
           placeholder="Search by Recipe"
         />
       </div>
