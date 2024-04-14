@@ -11,3 +11,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: dev
       POSTGRES_DB: com3014db
+
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - target: 6379
+        published: 23456

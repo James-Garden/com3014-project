@@ -13,7 +13,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
-import org.testcontainers.shaded.org.apache.commons.lang3.reflect.FieldUtils;
 import uk.ac.surrey.com3014.jg01314.AbstractIntegrationTest;
 import uk.ac.surrey.com3014.jg01314.validation.ValidationError;
 import uk.ac.surrey.com3014.jg01314.validation.ValidationException;
@@ -28,20 +27,15 @@ class UserControllerTest extends AbstractIntegrationTest {
   @MockBean
   private UserValidator userValidator;
 
-  private final String username = "John";
-  private final String email = "jsmith123@example.com";
-  private final String password = "Password123";
-
   @Test
-  void createUser_Valid_AssertCreated() throws IllegalAccessException {
-    var user = new User(username, email, password);
-    FieldUtils.writeField(user, "id", 1, true);
+  void createUser_Valid_AssertCreated() {
+    var user = UserTestUtil.userWithId();
     var request = Map.of(
-        UserValidator.USERNAME_FIELD, username,
-        UserValidator.EMAIL_FIELD, email,
-        UserValidator.PASSWORD_FIELD, password);
+        UserValidator.USERNAME_FIELD, UserTestUtil.USERNAME,
+        UserValidator.EMAIL_FIELD, UserTestUtil.EMAIL,
+        UserValidator.PASSWORD_FIELD, UserTestUtil.PASSWORD);
 
-    when(userService.createUser(username, email, password)).thenReturn(user);
+    when(userService.createUser(UserTestUtil.USERNAME, UserTestUtil.EMAIL, UserTestUtil.PASSWORD)).thenReturn(user);
 
     var response = testRestTemplate.postForEntity(URI.create("/api/user"), request, Void.class);
 
@@ -54,13 +48,14 @@ class UserControllerTest extends AbstractIntegrationTest {
   @Test
   void createUser_Invalid_AssertBadRequest() throws ValidationException {
     var request = Map.of(
-        UserValidator.USERNAME_FIELD, username,
-        UserValidator.EMAIL_FIELD, email,
-        UserValidator.PASSWORD_FIELD, password);
+        UserValidator.USERNAME_FIELD, UserTestUtil.USERNAME,
+        UserValidator.EMAIL_FIELD, UserTestUtil.EMAIL,
+        UserValidator.PASSWORD_FIELD, UserTestUtil.PASSWORD);
     var errors = List.of(new ValidationError("someField", "someError"));
 
-    doThrow(new ValidationException(errors)).when(userValidator).validateNewUser(username, email, password);
-
+    doThrow(new ValidationException(errors))
+        .when(userValidator)
+        .validateNewUser(UserTestUtil.USERNAME, UserTestUtil.EMAIL, UserTestUtil.PASSWORD);
 
     var response = testRestTemplate.postForEntity("/api/user", request, ValidationFailedResponse.class);
     var validationFailedResponse = response.getBody();
