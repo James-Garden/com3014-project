@@ -28,31 +28,30 @@
           <router-link to="/signin"> Sign In </router-link>
         </button>
       </div>
-    </div>
-    <div class="flex justify-center mx-auto">
-      <img
-        class="w-[732px] h-[77px] block"
-        src="../assets/addraw.png"
-        alt=""
-        srcset=""
-      />
+
+      <div class="mt-20 flex justify-center pl-60">
+        <img
+          class="w-[532px] h-[67px]"
+          src="../assets/searchss.png"
+          alt=""
+          srcset=""
+        />
+      </div>
     </div>
     <div class="mt-10 flex justify-center">
       <div>
         <input
-          type="password"
-          id="password"
+          type="text"
+          id="text"
           class="!w-[914px] !h-[49px] rounded-md pl-5"
-          v-model="password"
-          placeholder="Search by Ingredient"
-          readonly
+          v-model="text"
+          placeholder="Search by Recipe"
         />
-        <div class="bg-white w-[250px] rounded-md shadow-2xl h-[200px] mt-10">
-          <p class="p-4 text-md">Grated Cheese</p>
-          <p class="pl-4 text-md">Rice</p>
-          <p class="pl-4 pt-4 pb-4 text-md">Chicken Breast</p>
-          <p class="pl-4 text-md">Milk</p>
-        </div>
+      </div>
+      <div
+        class="bg-white w-[150px] shadow-2xl !h-[49px] border-[2px] border-[#8e8b8b]"
+      >
+        <p class="text-md text-center items-center pt-3">Filter</p>
       </div>
     </div>
   </div>
@@ -63,12 +62,11 @@
 .containerLogin {
   padding: 0;
   margin: 0;
-  width: full;
+  width: 100%;
   height: 100vh;
 }
 input::placeholder {
   color: #9b9b9b;
-  font-style: italic;
   text-align: left;
 }
 
@@ -76,7 +74,7 @@ input::placeholder {
   background: linear-gradient(
     178.54deg,
     rgba(255, 92, 0, 0) 1.24%,
-    #00e0ff 298.81%
+    #ff5c00 498.81%
   );
 }
 .right-bg {

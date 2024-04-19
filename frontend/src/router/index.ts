@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from "@/components/Home.vue";
+import Home from "@/components/HomePage.vue";
 import SignIn from "@/components/SignIn.vue";
 import SignUp from "@/components/SignUp.vue";
 import AccountSetting from "@/components/AccountSetting.vue";
 import SavedRecipes from "@/components/SavedRecipes.vue";
-import Raw from "@/components/Raw.vue";
-import Recipe from "@/components/Recipe.vue";
-import Individual from "@/components/Individual.vue";
-import Results from "@/components/Results.vue";
+import Raw from "@/components/RawRecipe.vue";
+import Recipe from "@/components/RecipePage.vue";
+import Individual from "@/components/IndividualRecipe.vue";
+import Results from "@/components/ResultsPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
