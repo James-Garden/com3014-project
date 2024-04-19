@@ -15,11 +15,11 @@
           <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
         </button>
         </div>
-    </div>
-    <div class="flex justify-center mt-6 px-10">
+      </div>
+    <div class="flex justify-center mt-10 px-10">
       <img
-        class="w-[457px] h-[77px]"
-        src="../assets/AccountSettings.png"
+        class="w-[894px] h-[77px]"
+        src="../assets/Simplif.png"
         alt=""
         srcset=""
       />
@@ -28,20 +28,10 @@
       <form @submit.prevent="signIn">
         <div>
           <input
-            class="!w-[424px] !h-[54px] border-[2px] border-[#000000] bg-[#f4b997] !text-black rounded-md pl-5"
+            class="!w-[914px] !h-[49px] rounded-md pl-5"
             type="email"
             id="email"
-            placeholder="Change Details"
-            v-model="email"
-            required
-          />
-        </div>
-        <div class="mt-10">
-          <input
-            class="!w-[424px] !h-[54px] border-[2px] border-[#000000] bg-[#f4b997] rounded-md pl-5"
-            type="text"
-            id="email"
-            placeholder="Saved Recipes"
+            placeholder="Email"
             v-model="email"
             required
           />
@@ -51,9 +41,19 @@
             type="password"
             id="password"
             v-model="password"
-            class="!w-[424px] !h-[54px] border-[2px] border-[#000000] bg-[#f4b997] rounded-md pl-5"
-            placeholder="Log Out"
+            class="!w-[914px] !h-[49px] rounded-md pl-5"
+            placeholder="Password"
           />
+        </div>
+        <p class="text-[#616161] pt-3">Forgot Password?</p>
+        <p class="text-[#616161] pt-5 text-center">No account? Sign up here</p>
+        <div class="flex justify-center mt-10">
+          <button
+            class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#f5bfa0]"
+            type="submit"
+          >
+            Sign In
+          </button>
         </div>
       </form>
     </div>
@@ -78,9 +78,37 @@
       rgba(0, 224, 255, 0.2) 100%
     );
 }
-input::placeholder {
-  color: black;
-  font-style: italic;
-  text-align: center;
+
+.signin h2 {
+  margin-bottom: 20px;
+}
+
+.signin form div {
+  margin-bottom: 15px;
+}
+
+.signin form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.signin form input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.signin form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signin form button:hover {
+  background-color: #0056b3;
 }
 </style>
