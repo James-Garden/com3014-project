@@ -1,28 +1,21 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="containerLogin">
     <div class="pt-5 pl-5">
       <div>
-          <button>
+        <button>
           <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
         </button>
-        </div>
-        <div class="ml-5">
-          <button>
+      </div>
+      <div class="ml-5">
+        <button>
           <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
         </button>
-        </div>
       </div>
+    </div>
     <div class="flex justify-center mt-6 px-10">
-      <img
-        class="w-[457px] h-[77px]"
-        src="../assets/SavedRecipes.png"
-        alt=""
-        srcset=""
-      />
+      <img class="w-[457px] h-[77px]" src="../assets/SavedRecipes.png" alt="" srcset="" />
     </div>
     <div class="flex mt-12 justify-center">
       <form @submit.prevent="signIn">
@@ -77,13 +70,9 @@
 .containerLogin {
   padding: 0;
   margin: 0;
-  width: full;
+  width: 100%;
   height: 100vh;
-  background: linear-gradient(
-    178.54deg,
-    rgba(255, 92, 0, 0) 1.24%,
-    FF5C00 98.81%
-  );
+  background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, FF5C00 98.81%);
 }
 input::placeholder {
   color: black;

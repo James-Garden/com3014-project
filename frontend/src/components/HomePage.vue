@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="flex w-full h-full relative">
@@ -8,23 +6,18 @@
       <div class="pt-5 pl-5">
         <div>
           <button>
-          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
-        </button>
+            <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+          </button>
         </div>
         <div class="ml-5">
           <button>
-          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
-        </button>
+            <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+          </button>
         </div>
       </div>
 
       <div class="absolute left-[20%] mt-10 px-10">
-        <img
-          class="w-[894px] h-[77px]"
-          src="../assets/Simplif.png"
-          alt=""
-          srcset=""
-        />
+        <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
       </div>
 
       <div class="absolute top-[40%] left-[10%]">
@@ -33,7 +26,7 @@
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
           >
-          <router-link to="/Raw"> Continue </router-link>
+            <router-link to="/Raw"> Continue </router-link>
           </button>
         </div>
       </div>
@@ -59,7 +52,7 @@
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
           >
-          <router-link to="/Recipie"> Continue </router-link>
+            <router-link to="/Recipie"> Continue </router-link>
           </button>
         </div>
       </div>
@@ -100,17 +93,9 @@ input::placeholder {
 }
 
 .left-bg {
-  background: linear-gradient(
-    178.54deg,
-    rgba(255, 92, 0, 0) 1.24%,
-    #00e0ff 298.81%
-  );
+  background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, #00e0ff 298.81%);
 }
 .right-bg {
-  background: linear-gradient(
-    178.54deg,
-    rgba(255, 92, 0, 0) 1.24%,
-    #ff5c00 398.81%
-  );
+  background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, #ff5c00 398.81%);
 }
 </style>
