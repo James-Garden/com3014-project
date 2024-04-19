@@ -1,4 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+import { useUserStore } from '@/stores/UserStore';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const userStore = useUserStore();
+const router = useRouter();
+const email = ref("");
+const password = ref("");
+
+async function signIn() {
+  const signInSuccessful = await userStore.signIn(email.value, password.value);
+  if (signInSuccessful) {
+    await router.push('/');
+    return;
+  }
+
+  // TODO: Handle incorrect details better
+  alert('Incorrect email or password');
+}
+
+</script>
 
 <template>
   <div class="containerLogin">
