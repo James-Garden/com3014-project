@@ -1,26 +1,23 @@
+<script setup lang="ts"></script>
+
 <template>
   <div class="flex w-full h-full relative">
     <div class="left-bg w-1/2 h-screen">
       <div class="pt-5 pl-5">
         <div>
           <button>
-          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
-        </button>
+            <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+          </button>
         </div>
         <div class="ml-5">
           <button>
-          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
-        </button>
+            <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+          </button>
         </div>
       </div>
 
       <div class="absolute left-[20%] mt-10 px-10">
-        <img
-          class="w-[894px] h-[77px]"
-          src="../assets/Simplif.png"
-          alt=""
-          srcset=""
-        />
+        <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
       </div>
 
       <div class="absolute top-[40%] left-[10%]">
@@ -29,7 +26,7 @@
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
           >
-          <router-link to="/Raw"> Continue </router-link>
+            <router-link to="/Raw"> Continue </router-link>
           </button>
         </div>
       </div>
@@ -55,7 +52,7 @@
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
           >
-          <router-link to="/Recipie"> Continue </router-link>
+            <router-link to="/Recipie"> Continue </router-link>
           </button>
         </div>
       </div>
@@ -81,32 +78,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "HomePage",
-  data() {
-    return {
-      email: "",
-      password: "",
-    };
-  },
-  methods: {
-    signIn() {
-      // Perform sign-in logic here
-      console.log("Email:", this.email);
-      console.log("Password:", this.password);
-      // Example: You can send the email and password to an API for authentication
-    },
-  },
-};
-</script>
-
 <style scoped>
 /* Add your scoped styles here */
 .containerLogin {
   padding: 0;
   margin: 0;
-  width: full;
+  width: 100%;
   height: 100vh;
 }
 input::placeholder {
@@ -116,17 +93,9 @@ input::placeholder {
 }
 
 .left-bg {
-  background: linear-gradient(
-    178.54deg,
-    rgba(255, 92, 0, 0) 1.24%,
-    #00e0ff 298.81%
-  );
+  background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, #00e0ff 298.81%);
 }
 .right-bg {
-  background: linear-gradient(
-    178.54deg,
-    rgba(255, 92, 0, 0) 1.24%,
-    #ff5c00 398.81%
-  );
+  background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, #ff5c00 398.81%);
 }
 </style>

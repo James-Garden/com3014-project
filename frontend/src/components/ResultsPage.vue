@@ -1,17 +1,19 @@
+<script setup lang="ts"></script>
+
 <template>
   <div class="containerLogin">
     <div class="pt-5 pl-5">
       <div>
-          <button>
+        <button>
           <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
         </button>
-        </div>
-        <div class="ml-5">
-          <button>
+      </div>
+      <div class="ml-5">
+        <button>
           <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
         </button>
-        </div>
       </div>
+    </div>
     <h1 class="text-center text-3xl font-serif mb-5">Search Results</h1>
     <div class="flex justify-center">
       <div class="w-1/2 ml-28 rbgabgt flex justify-center">
@@ -38,9 +40,7 @@
               placeholder="Cuisine"
             />
           </div>
-          <div
-            class="!w-[523px] !h-[137px] border-none mt-10 bg-white border-none rounded-md pl-5"
-          >
+          <div class="!w-[523px] !h-[137px] border-none mt-10 bg-white border-none rounded-md pl-5">
             <p class="text-[#808080] text-xl pt-5">Dietary Requirements</p>
             <div>
               <input type="radio" name="" id="" checked />
@@ -93,14 +93,10 @@
               class="!w-[523px] !h-[93px] border-[2px] border-[#a69f9f] bg-[#f4b997] rounded-md pl-5"
             />
           </div>
-          <p
-            class="text-center absolute bottom-10 left-[30%] text-[#898989] pt-5"
-          >
+          <p class="text-center absolute bottom-10 left-[30%] text-[#898989] pt-5">
             Scroll for more
           </p>
-          <p
-            class="text-center absolute bottom-5 left-[35%] flex justify-center"
-          >
+          <p class="text-center absolute bottom-5 left-[35%] flex justify-center">
             <svg
               width="24"
               height="14"
@@ -120,43 +116,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "ResultPage",
-  data() {
-    return {
-      email: "",
-      password: "",
-    };
-  },
-  methods: {
-    signIn() {
-      // Perform sign-in logic here
-      console.log("Email:", this.email);
-      console.log("Password:", this.password);
-      // Example: You can send the email and password to an API for authentication
-    },
-  },
-};
-</script>
-
 <style scoped>
 /* Add your scoped styles here */
 .containerLogin {
   padding: 0;
   margin: 0;
-  width: full;
+  width: 100%;
   height: 100vh;
-  background: linear-gradient(
-      178.54deg,
-      rgba(255, 92, 0, 0) 1.24%,
-      rgba(255, 92, 0, 0.1755) 98.81%
-    ),
-    linear-gradient(
-      360deg,
-      rgba(0, 224, 255, 0) 0%,
-      rgba(0, 224, 255, 0.2) 100%
-    );
+  background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, rgba(255, 92, 0, 0.1755) 98.81%),
+    linear-gradient(360deg, rgba(0, 224, 255, 0) 0%, rgba(0, 224, 255, 0.2) 100%);
 }
 input::placeholder {
   color: black;
