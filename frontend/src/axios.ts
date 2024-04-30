@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const userApiUrl = import.meta.env.VITE_USER_API_URL;
 
-export default axios.create({
-  baseURL: apiUrl,
+export const userAxios = axios.create({
+  baseURL: userApiUrl,
   timeout: 1000
 });

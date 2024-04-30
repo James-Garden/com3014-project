@@ -19,6 +19,7 @@ import uk.ac.surrey.com3014.jg01314.AbstractIntegrationTest;
 import uk.ac.surrey.com3014.jg01314.user.User;
 import uk.ac.surrey.com3014.jg01314.user.UserService;
 import uk.ac.surrey.com3014.jg01314.user.UserTestUtil;
+import uk.ac.surrey.com3014.jg01314.user.UserView;
 
 @ExtendWith(MockitoExtension.class)
 class SessionControllerTest extends AbstractIntegrationTest {
@@ -65,11 +66,12 @@ class SessionControllerTest extends AbstractIntegrationTest {
     when(sessionService.createSession(user)).thenReturn(createdSession);
 
     var request = new CreateSessionRequest(user.getEmail(), UserTestUtil.PASSWORD);
-    var response = testRestTemplate.postForEntity("/api/session", request, Void.class);
+    var response = testRestTemplate.postForEntity("/api/session", request, UserView.class);
 
-    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     assertThat(response.getHeaders().get(HttpHeaders.SET_COOKIE))
         .contains("SessionID=" + createdSession.getId() + "; Secure; HttpOnly");
+    assertThat(response.getBody()).isEqualTo(user.asView());
   }
 
   @Test

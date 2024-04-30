@@ -25,7 +25,6 @@
               class="!w-[523px] !h-[47px] border-[2px] border-none rounded-md pl-5"
               type="email"
               id="email"
-              v-model="email"
               required
               placeholder="Sort by"
             />
@@ -35,7 +34,6 @@
               class="!w-[523px] !h-[47px] border-[2px] border-none rounded-md pl-5"
               type="email"
               id="email"
-              v-model="email"
               required
               placeholder="Cuisine"
             />
@@ -56,13 +54,12 @@
       </div>
 
       <div class="w-1/2 relative ml-20">
-        <form @submit.prevent="signIn">
+        <form>
           <div>
             <input
               class="!w-[523px] !h-[113px] border-[2px] border-[#a69f9f] bg-[#f4b997] !text-black rounded-md pl-5"
               type="email"
               id="email"
-              v-model="email"
               required
               placeholder="(ICONS)                   Cheese Quesadila"
             />
@@ -72,7 +69,6 @@
               class="!w-[523px] !h-[113px] border-[2px] border-[#a69f9f] bg-[#f4b997] rounded-md pl-5"
               type="text"
               id="email"
-              v-model="email"
               required
             />
           </div>
@@ -81,7 +77,6 @@
               class="!w-[523px] !h-[113px] border-[2px] border-[#a69f9f] bg-[#f4b997] rounded-md pl-5"
               type="text"
               id="email"
-              v-model="email"
               required
             />
           </div>
@@ -89,7 +84,6 @@
             <input
               type="password"
               id="password"
-              v-model="password"
               class="!w-[523px] !h-[93px] border-[2px] border-[#a69f9f] bg-[#f4b997] rounded-md pl-5"
             />
           </div>

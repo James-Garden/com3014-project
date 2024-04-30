@@ -12,6 +12,7 @@ const password = ref("");
 async function signIn() {
   const signInSuccessful = await userStore.signIn(email.value, password.value);
   if (signInSuccessful) {
+    alert(`Signed in as ${userStore.currentUser?.username}`)
     await router.push('/');
     return;
   }

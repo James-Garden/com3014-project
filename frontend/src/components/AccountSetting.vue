@@ -18,14 +18,13 @@
       <img class="w-[457px] h-[77px]" src="../assets/AccountSettings.png" alt="" srcset="" />
     </div>
     <div class="flex mt-12 justify-center">
-      <form @submit.prevent="signIn">
+      <form>
         <div>
           <input
             class="!w-[424px] !h-[54px] border-[2px] border-[#000000] bg-[#f4b997] !text-black rounded-md pl-5"
             type="email"
             id="email"
             placeholder="Change Details"
-            v-model="email"
             required
           />
         </div>
@@ -35,7 +34,6 @@
             type="text"
             id="email"
             placeholder="Saved Recipes"
-            v-model="email"
             required
           />
         </div>
@@ -43,7 +41,6 @@
           <input
             type="password"
             id="password"
-            v-model="password"
             class="!w-[424px] !h-[54px] border-[2px] border-[#000000] bg-[#f4b997] rounded-md pl-5"
             placeholder="Log Out"
           />
