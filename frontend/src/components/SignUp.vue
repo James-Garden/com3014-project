@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { type Ref, ref } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
 import type { ValidationError } from '@/apis/ValidationUtil';
@@ -16,15 +15,14 @@ const errors: Ref<ValidationError[]> = ref([]);
 async function signUp() {
   errors.value = await userStore.signUp(username.value, email.value, password.value);
   if (errors.value.length === 0) {
-    alert(`Signed up as ${userStore.currentUser?.username}`)
+    alert(`Signed up as ${userStore.currentUser?.username}`);
     await router.push('/');
     return;
   }
 
-  alert(`Found errors: ${errors.value}`)
+  alert(`Found errors: ${errors.value}`);
   // TODO: Add error handling
 }
-
 </script>
 
 <template>
@@ -32,54 +30,54 @@ async function signUp() {
     <div class="pt-5 pl-5">
       <div>
         <button>
-          <router-link to="/"><img src="../assets/Cupboard.png" alt=""/></router-link>
+          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
         </button>
       </div>
       <div class="ml-5">
         <button>
-          <router-link to="/"><img src="../assets/Cookbook.png" alt=""/></router-link>
+          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
         </button>
       </div>
     </div>
     <div class="flex justify-center mt-10 px-10">
-      <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset=""/>
+      <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
     </div>
     <div class="flex mt-12 justify-center">
       <form @submit.prevent="signUp">
         <div>
           <input
-              class="!w-[914px] !h-[49px] rounded-md pl-5"
-              type="text"
-              id="email"
-              placeholder="Username"
-              v-model="username"
-              required
+            class="!w-[914px] !h-[49px] rounded-md pl-5"
+            type="text"
+            id="email"
+            placeholder="Username"
+            v-model="username"
+            required
           />
         </div>
         <div class="mt-10">
           <input
-              class="!w-[914px] !h-[49px] rounded-md pl-5"
-              type="email"
-              id="email"
-              placeholder="Email"
-              v-model="email"
-              required
+            class="!w-[914px] !h-[49px] rounded-md pl-5"
+            type="email"
+            id="email"
+            placeholder="Email"
+            v-model="email"
+            required
           />
         </div>
         <div class="mt-10">
           <input
-              type="password"
-              id="password"
-              v-model="password"
-              class="!w-[914px] !h-[49px] rounded-md pl-5"
-              placeholder="Password"
+            type="password"
+            id="password"
+            v-model="password"
+            class="!w-[914px] !h-[49px] rounded-md pl-5"
+            placeholder="Password"
           />
         </div>
 
         <div class="flex justify-center mt-10">
           <button
-              class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#9ae4ed]"
-              type="submit"
+            class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#9ae4ed]"
+            type="submit"
           >
             Sign Up
           </button>
@@ -97,7 +95,7 @@ async function signUp() {
   width: 100%;
   height: 100vh;
   background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, rgba(255, 92, 0, 0.1755) 98.81%),
-  linear-gradient(360deg, rgba(0, 224, 255, 0) 0%, rgba(0, 224, 255, 0.2) 100%);
+    linear-gradient(360deg, rgba(0, 224, 255, 0) 0%, rgba(0, 224, 255, 0.2) 100%);
 }
 
 .signin h2 {

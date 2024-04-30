@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="flex w-full h-full relative">
@@ -48,7 +47,6 @@
             Sign In
           </button>
         </router-link>
-
       </div>
 
       <div class="absolute top-[40%] right-[10%]">
