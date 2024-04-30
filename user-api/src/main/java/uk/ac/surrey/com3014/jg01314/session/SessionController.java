@@ -45,7 +45,14 @@ class SessionController {
   }
 
   @DeleteMapping
-  ResponseEntity<Void> deleteSession(@CookieValue("SessionID") String sessionId) {
+  ResponseEntity<Void> deleteSession(@CookieValue("SessionID") String sessionId,
+                                     HttpServletResponse response) {
+    var sessionIdCookie = new Cookie("SessionID", sessionId);
+    sessionIdCookie.setMaxAge(0); // Cause the cookie to expire immediately, this is the only way to delete a HttpOnly cookie
+    sessionIdCookie.setHttpOnly(true);
+    sessionIdCookie.setSecure(true);
+    response.addCookie(sessionIdCookie);
+
     var session = sessionService.findSession(sessionId)
         .orElseThrow(EntityNotFoundException::new);
 

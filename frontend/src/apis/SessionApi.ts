@@ -16,4 +16,14 @@ export class SessionApi {
 
     return response.data;
   }
+
+  static async deleteSession() {
+    await userAxios.delete(
+        '/session',
+        {
+          validateStatus: (status) => (status === 200 || status === 404),
+          withCredentials: true
+        }
+    );
+  }
 }

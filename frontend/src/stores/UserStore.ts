@@ -31,6 +31,12 @@ export const useUserStore = defineStore('user', () => {
     return wasSuccessful;
   }
 
-  return { signUp, signIn, currentUser };
+  async function signOut() {
+    await SessionApi.deleteSession();
+    currentUser.value = undefined;
+    document.cookie = 'SessionID' +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  }
+
+  return { signUp, signIn, signOut, currentUser };
 
 });
