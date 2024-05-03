@@ -18,13 +18,12 @@
       <img class="w-[457px] h-[77px]" src="../assets/SavedRecipes.png" alt="" srcset="" />
     </div>
     <div class="flex mt-12 justify-center">
-      <form @submit.prevent="signIn">
+      <form>
         <div>
           <input
             class="!w-[1023px] !h-[113px] border-[2px] border-[#000000] bg-[#f4b997] !text-black rounded-md pl-5"
             type="email"
             id="email"
-            v-model="email"
             required
           />
         </div>
@@ -33,7 +32,6 @@
             class="!w-[1023px] !h-[113px] border-[2px] border-[#000000] bg-[#f4b997] rounded-md pl-5"
             type="text"
             id="email"
-            v-model="email"
             required
           />
         </div>
@@ -41,7 +39,6 @@
           <input
             type="password"
             id="password"
-            v-model="password"
             class="!w-[1023px] !h-[113px] border-[2px] border-[#000000] bg-[#f4b997] rounded-md pl-5"
           />
         </div>

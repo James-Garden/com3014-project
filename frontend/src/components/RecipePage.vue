@@ -37,7 +37,6 @@
           type="text"
           id="text"
           class="!w-[914px] !h-[49px] rounded-md pl-5"
-          v-model="text"
           placeholder="Search by Recipe"
         />
       </div>

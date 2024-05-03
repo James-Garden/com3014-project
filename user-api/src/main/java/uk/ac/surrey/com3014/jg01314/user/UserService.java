@@ -17,6 +17,14 @@ public class UserService {
     this.passwordEncoder = passwordEncoder;
   }
 
+  public boolean verifyPassword(User user, String password) {
+    return passwordEncoder.matches(password, user.getPasswordHash());
+  }
+
+  public Optional<User> findByEmail(String email) {
+    return userRepository.findByEmail(email);
+  }
+
   User createUser(String username, String email, String password) {
     var hashedPassword = passwordEncoder.encode(password);
     var user = new User(username, email, hashedPassword);
@@ -24,11 +32,7 @@ public class UserService {
     return userRepository.save(user);
   }
 
-  public Optional<User> findByEmail(String email) {
-    return userRepository.findByEmail(email);
-  }
-
-  public boolean verifyPassword(User user, String password) {
-    return passwordEncoder.matches(password, user.getPasswordHash());
+  Optional<User> findById(Integer userId) {
+    return userRepository.findById(userId);
   }
 }

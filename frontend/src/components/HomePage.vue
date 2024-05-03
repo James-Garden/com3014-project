@@ -38,12 +38,15 @@
         <p class="underline text-[34px]">
           <router-link to="/signup"> Sign Up </router-link>
         </p>
-        <button
-          class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#edf1f1]"
-          type="submit"
-        >
-          <router-link to="/signin"> Sign In </router-link>
-        </button>
+
+        <router-link to="/signin">
+          <button
+            class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#edf1f1]"
+            type="button"
+          >
+            Sign In
+          </button>
+        </router-link>
       </div>
 
       <div class="absolute top-[40%] right-[10%]">

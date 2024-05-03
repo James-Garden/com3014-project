@@ -44,4 +44,8 @@ public class User {
   public String getPasswordHash() {
     return passwordHash;
   }
+
+  public UserView asView() {
+    return new UserView(id, username, email);
+  }
 }

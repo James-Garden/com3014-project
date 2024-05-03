@@ -36,7 +36,6 @@
           type="password"
           id="password"
           class="!w-[914px] !h-[49px] rounded-md pl-5"
-          v-model="password"
           placeholder="Search by Ingredient"
           readonly
         />

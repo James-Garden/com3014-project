@@ -1,4 +1,29 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { type Ref, ref } from 'vue';
+import { useUserStore } from '@/stores/UserStore';
+import type { ValidationError } from '@/apis/ValidationUtil';
+import { useRouter } from 'vue-router';
+
+const userStore = useUserStore();
+const router = useRouter();
+
+const username = ref('');
+const email = ref('');
+const password = ref('');
+const errors: Ref<ValidationError[]> = ref([]);
+
+async function signUp() {
+  errors.value = await userStore.signUp(username.value, email.value, password.value);
+  if (errors.value.length === 0) {
+    alert(`Signed up as ${userStore.currentUser?.username}`);
+    await router.push('/');
+    return;
+  }
+
+  alert(`Found errors: ${errors.value}`);
+  // TODO: Add error handling
+}
+</script>
 
 <template>
   <div class="containerLogin">
@@ -18,23 +43,23 @@
       <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
     </div>
     <div class="flex mt-12 justify-center">
-      <form @submit.prevent="signIn">
+      <form @submit.prevent="signUp">
         <div>
           <input
             class="!w-[914px] !h-[49px] rounded-md pl-5"
-            type="email"
+            type="text"
             id="email"
-            placeholder="Email"
-            v-model="email"
+            placeholder="Username"
+            v-model="username"
             required
           />
         </div>
         <div class="mt-10">
           <input
             class="!w-[914px] !h-[49px] rounded-md pl-5"
-            type="text"
+            type="email"
             id="email"
-            placeholder="Username"
+            placeholder="Email"
             v-model="email"
             required
           />

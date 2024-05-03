@@ -30,13 +30,13 @@ class UserController {
   }
 
   @PostMapping
-  ResponseEntity<Void> createUser(@RequestBody CreateUserRequest request) throws ValidationException {
+  ResponseEntity<UserView> createUser(@RequestBody CreateUserRequest request) throws ValidationException {
     userValidator.validateNewUser(request.username(), request.email(), request.password());
 
     var user = userService.createUser(request.username(), request.email(), request.password());
     var userResourceUri = URI.create("/api/user/" + user.getId());
 
-    return ResponseEntity.created(userResourceUri).body(null);
+    return ResponseEntity.created(userResourceUri).body(user.asView());
   }
 
 }
