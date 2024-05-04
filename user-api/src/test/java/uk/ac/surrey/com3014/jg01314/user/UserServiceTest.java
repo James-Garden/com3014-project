@@ -5,8 +5,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
@@ -56,4 +59,39 @@ class UserServiceTest {
         );
   }
 
+  @Test
+  void findById() {
+    var user = UserTestUtil.userWithId();
+
+    when(userRepository.findById(user.getId())).thenReturn(Optional.of(user));
+
+    var foundUserOptional = userService.findById(user.getId());
+
+    assertThat(foundUserOptional).contains(user);
+  }
+
+  @Test
+  void findByEmail() {
+    var user = UserTestUtil.userWithId();
+
+    when(userRepository.findByEmail(user.getEmail())).thenReturn(Optional.of(user));
+
+    var foundUserOptional = userService.findByEmail(user.getEmail());
+
+    assertThat(foundUserOptional).contains(user);
+  }
+
+  @ParameterizedTest
+  @ValueSource(booleans = {true, false})
+  void verifyPassword(boolean shouldVerify) {
+    var user = UserTestUtil.userWithId();
+    var password = "test123";
+
+    when(passwordEncoder.matches(password, user.getPasswordHash()))
+        .thenReturn(shouldVerify);
+
+    var isVerified = userService.verifyPassword(user, password);
+
+    assertThat(isVerified).isEqualTo(shouldVerify);
+  }
 }

@@ -64,4 +64,41 @@ class SessionServiceTest {
 
     verify(sessionRepository).delete(session);
   }
+
+  @Test
+  void verifySession_NotFound_AssertFalse() {
+    var sessionId = SessionIdGenerator.generateSessionId();
+
+    when(sessionRepository.findById(sessionId)).thenReturn(Optional.empty());
+
+    var isVerified = sessionService.verifySession(UserTestUtil.userWithId(), sessionId);
+
+    assertThat(isVerified).isFalse();
+  }
+
+  @Test
+  void verifySession_UserIdDoesNotMatch_AssertFalse() {
+    var sessionId = SessionIdGenerator.generateSessionId();
+    var user = UserTestUtil.userWithId();
+    var session = new Session(sessionId, user.getId() + 1);
+
+    when(sessionRepository.findById(sessionId)).thenReturn(Optional.of(session));
+
+    var isVerified = sessionService.verifySession(user, sessionId);
+
+    assertThat(isVerified).isFalse();
+  }
+
+  @Test
+  void verifySession_WhenValid_AssertTrue() {
+    var sessionId = SessionIdGenerator.generateSessionId();
+    var user = UserTestUtil.userWithId();
+    var session = new Session(sessionId, user.getId());
+
+    when(sessionRepository.findById(sessionId)).thenReturn(Optional.of(session));
+
+    var isVerified = sessionService.verifySession(user, sessionId);
+
+    assertThat(isVerified).isTrue();
+  }
 }

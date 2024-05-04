@@ -27,4 +27,11 @@ class SessionService {
   void deleteSession(Session session) {
     sessionRepository.delete(session);
   }
+
+  public boolean verifySession(User user, String sessionId) {
+    return findSession(sessionId)
+        .map(session -> session.getUserId().equals(user.getId()))
+        .orElse(false);
+
+  }
 }

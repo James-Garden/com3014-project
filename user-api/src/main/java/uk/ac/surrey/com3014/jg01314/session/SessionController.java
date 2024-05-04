@@ -28,6 +28,15 @@ class SessionController {
     this.sessionService = sessionService;
   }
 
+  @PostMapping("/verify")
+  ResponseEntity<VerifySessionResponse> verifySession(@RequestBody VerifySessionRequest request) {
+    var isSessionValid = userService.findById(request.userId())
+        .map(user -> sessionService.verifySession(user, request.sessionId()))
+        .orElse(false);
+
+    return ResponseEntity.ok(new VerifySessionResponse(isSessionValid));
+  }
+
   @PostMapping
   ResponseEntity<UserView> createSession(@RequestBody CreateSessionRequest request,
                                          HttpServletResponse response) {

@@ -98,6 +98,49 @@ class SessionControllerTest extends AbstractIntegrationTest {
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
   }
 
+  @Test
+  void verifySession_UserNotFound_AssertFalse() {
+    var request = new VerifySessionRequest("some-session-id", user.getId());
+
+    when(userService.findById(user.getId())).thenReturn(Optional.empty());
+
+    var response = testRestTemplate.postForEntity("/api/session/verify", request, VerifySessionResponse.class);
+
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(response.getBody()).isNotNull();
+    assertThat(response.getBody().isValidSession()).isFalse();
+  }
+
+  @Test
+  void verifySession_SessionNotVerified_AssertFalse() {
+    var sessionId = SessionIdGenerator.generateSessionId();
+    var request = new VerifySessionRequest(sessionId, user.getId());
+
+    when(userService.findById(user.getId())).thenReturn(Optional.of(user));
+    when(sessionService.verifySession(user, sessionId)).thenReturn(false);
+
+    var response = testRestTemplate.postForEntity("/api/session/verify", request, VerifySessionResponse.class);
+
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(response.getBody()).isNotNull();
+    assertThat(response.getBody().isValidSession()).isFalse();
+  }
+
+  @Test
+  void verifySession_SessionVerified_AssertTrue() {
+    var sessionId = SessionIdGenerator.generateSessionId();
+    var request = new VerifySessionRequest(sessionId, user.getId());
+
+    when(userService.findById(user.getId())).thenReturn(Optional.of(user));
+    when(sessionService.verifySession(user, sessionId)).thenReturn(true);
+
+    var response = testRestTemplate.postForEntity("/api/session/verify", request, VerifySessionResponse.class);
+
+    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(response.getBody()).isNotNull();
+    assertThat(response.getBody().isValidSession()).isTrue();
+  }
+
   private HttpEntity<Void> getHttpEntityWithSessionCookie(String sessionId) {
     var headers = new HttpHeaders();
     headers.add("Cookie", "SessionID=" + sessionId);

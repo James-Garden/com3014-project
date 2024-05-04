@@ -32,7 +32,7 @@ public class UserService {
     return userRepository.save(user);
   }
 
-  Optional<User> findById(Integer userId) {
+  public Optional<User> findById(Integer userId) {
     return userRepository.findById(userId);
   }
 }
