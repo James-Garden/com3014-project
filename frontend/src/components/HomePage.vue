@@ -6,22 +6,24 @@
       <div class="pt-5 pl-5">
         <div>
           <button>
-            <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+            <router-link to="/"><p class="text_nop">Cupboard</p></router-link>
           </button>
         </div>
         <div class="ml-5">
           <button>
-            <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+            <router-link to="/"><p class="text_nop">Cookbook</p></router-link>
           </button>
         </div>
       </div>
 
       <div class="absolute left-[20%] mt-10 px-10">
-        <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
+        <!-- <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" /> -->
+        <p class="text_ok">Simplify the Cooking experience.</p>
       </div>
 
       <div class="absolute top-[40%] left-[10%]">
-        <img class="" src="../assets/dontok.png" alt="" srcset="" />
+        <p class="texts">Don’t know what to cook?</p>
+        <p class="texts">Search by raw ingredients.</p>
         <div class="flex justify-center">
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"

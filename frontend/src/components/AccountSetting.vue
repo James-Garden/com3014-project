@@ -5,17 +5,18 @@
     <div class="pt-5 pl-5">
       <div>
         <button>
-          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+          <router-link to="/"><p class="text_nop">Cupboard</p></router-link>
         </button>
       </div>
       <div class="ml-5">
         <button>
-          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+          <router-link to="/"><p class="text_nop">Cookbook</p></router-link>
         </button>
       </div>
     </div>
     <div class="flex justify-center mt-6 px-10">
-      <img class="w-[457px] h-[77px]" src="../assets/AccountSettings.png" alt="" srcset="" />
+      <!-- <img class="w-[457px] h-[77px]" src="../assets/AccountSettings.png" alt="" srcset="" /> -->
+      <p class="text_ok">Account Settings</p>
     </div>
     <div class="flex mt-12 justify-center">
       <form>

@@ -30,18 +30,19 @@ async function signUp() {
     <div class="pt-5 pl-5">
       <div>
         <button>
-          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
-        </button>
-      </div>
-      <div class="ml-5">
-        <button>
-          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
-        </button>
+            <router-link to="/"><p class="text_nop">Cupboard</p></router-link>
+          </button>
+        </div>
+        <div class="ml-5">
+          <button>
+            <router-link to="/"><p class="text_nop">Cookbook</p></router-link>
+          </button>
       </div>
     </div>
-    <div class="flex justify-center mt-10 px-10">
-      <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
-    </div>
+    <div class="absolute left-[20%] mt-10 px-10">
+        <!-- <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" /> -->
+        <p class="text_ok">Simplify the Cooking experience.</p>
+      </div>
     <div class="flex mt-12 justify-center">
       <form @submit.prevent="signUp">
         <div>
