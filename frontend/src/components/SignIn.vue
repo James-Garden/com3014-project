@@ -18,7 +18,7 @@ async function signIn() {
       router.push('/');
     }, 400);
   } else {
-    alert('vui lòng nhập đúng email , password');
+    alert('Please enter correct Email , Password');
   }
   // const signInSuccessful = await userStore.signIn(email.value, password.value);
 
@@ -72,7 +72,7 @@ async function signIn() {
           />
         </div>
         <p class="text-[#616161] pt-3">Forgot Password?</p>
-        <p class="text-[#616161] pt-5 text-center">No account? Sign up here</p>
+        <p class="text-[#616161] pt-5 text-center">No account? Sign up <router-link to="/Signup"><strong>here</strong></router-link></p>
         <div class="flex justify-center mt-10">
           <button
             class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#f5bfa0]"
