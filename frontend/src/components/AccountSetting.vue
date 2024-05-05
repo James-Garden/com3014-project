@@ -66,4 +66,13 @@ input::placeholder {
   font-style: italic;
   text-align: center;
 }
+.text_ok {
+  font-family: 'Newsreader', serif;
+  font-size: 64px;
+}
+.text_nop {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 40px;
+}
 </style>
+

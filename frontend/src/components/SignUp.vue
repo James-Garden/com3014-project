@@ -13,14 +13,20 @@ const password = ref('');
 const errors: Ref<ValidationError[]> = ref([]);
 
 async function signUp() {
-  errors.value = await userStore.signUp(username.value, email.value, password.value);
-  if (errors.value.length === 0) {
-    alert(`Signed up as ${userStore.currentUser?.username}`);
-    await router.push('/');
-    return;
-  }
+  console.log(username.value, email.value, password.value);
 
-  alert(`Found errors: ${errors.value}`);
+  localStorage.setItem('username', username.value);
+  localStorage.setItem('email', email.value);
+  localStorage.setItem('password', password.value);
+  router.push('/signin');
+  // errors.value = await userStore.signUp(username.value, email.value, password.value);
+  // if (errors.value.length === 0) {
+  //   alert(`Signed up as ${userStore.currentUser?.username}`);
+  //   await router.push('/');
+  //   return;
+  // }
+
+  // alert(`Found errors: ${errors.value}`);
   // TODO: Add error handling
 }
 </script>
@@ -30,19 +36,18 @@ async function signUp() {
     <div class="pt-5 pl-5">
       <div>
         <button>
-            <router-link to="/"><p class="text_nop">Cupboard</p></router-link>
-          </button>
-        </div>
-        <div class="ml-5">
-          <button>
-            <router-link to="/"><p class="text_nop">Cookbook</p></router-link>
-          </button>
+          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+        </button>
+      </div>
+      <div class="ml-5">
+        <button>
+          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+        </button>
       </div>
     </div>
-    <div class="absolute left-[20%] mt-10 px-10">
-        <!-- <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" /> -->
-        <p class="text_ok">Simplify the Cooking experience.</p>
-      </div>
+    <div class="flex justify-center mt-10 px-10">
+      <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
+    </div>
     <div class="flex mt-12 justify-center">
       <form @submit.prevent="signUp">
         <div>
@@ -132,3 +137,4 @@ async function signUp() {
   background-color: #0056b3;
 }
 </style>
+

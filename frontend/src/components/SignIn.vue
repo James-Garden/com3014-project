@@ -9,15 +9,27 @@ const email = ref('');
 const password = ref('');
 
 async function signIn() {
-  const signInSuccessful = await userStore.signIn(email.value, password.value);
-  if (signInSuccessful) {
-    alert(`Signed in as ${userStore.currentUser?.username}`);
-    await router.push('/');
-    return;
+  var dataName = localStorage.getItem('username');
+  var dataEmail = localStorage.getItem('email');
+  var dataPassword = localStorage.getItem('password');
+  if (dataEmail == email.value && dataPassword == password.value) {
+    alert('login successful');
+    setTimeout(() => {
+      router.push('/');
+    }, 400);
+  } else {
+    alert('vui lòng nhập đúng email , password');
   }
+  // const signInSuccessful = await userStore.signIn(email.value, password.value);
 
-  // TODO: Handle incorrect details better
-  alert('Incorrect email or password');
+  // if (signInSuccessful) {
+  //   alert(`Signed in as ${userStore.currentUser?.username}`);
+  //   await router.push('/');
+  //   return;
+  // }
+
+  // // TODO: Handle incorrect details better
+  // alert('Incorrect email or password');
 }
 </script>
 
@@ -26,19 +38,18 @@ async function signIn() {
     <div class="pt-5 pl-5">
       <div>
         <button>
-          <router-link to="/"><p class="text_nop">Cupboard</p></router-link>
+          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
         </button>
       </div>
       <div class="ml-5">
         <button>
-          <router-link to="/"><p class="text_nop">Cookbook</p></router-link>
+          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
         </button>
       </div>
     </div>
-    <div class="absolute left-[20%] mt-10 px-10">
-        <!-- <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" /> -->
-        <p class="text_ok">Simplify the Cooking experience.</p>
-      </div>
+    <div class="flex justify-center mt-10 px-10">
+      <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
+    </div>
     <div class="flex mt-12 justify-center">
       <form @submit.prevent="signIn">
         <div>
@@ -119,3 +130,4 @@ async function signIn() {
   background-color: #0056b3;
 }
 </style>
+

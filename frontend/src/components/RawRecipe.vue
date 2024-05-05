@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const userName = localStorage.getItem('username');
+const isLoggedIn = ref(userName !== null);
+</script>
 
 <template>
   <div class="w-full relative left-bg h-screen">
@@ -16,15 +21,19 @@
         </div>
       </div>
       <div class="flex justify-center gap-10 absolute right-3 top-2">
-        <p class="underline text-[34px]">
+        <p v-if="isLoggedIn" class="underline text-[34px]">Logout</p>
+        <p v-if="!isLoggedIn" class="underline text-[34px]">
           <router-link to="/signup"> Sign Up </router-link>
         </p>
-        <button
-          class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#edf1f1]"
-          type="submit"
-        >
-          <router-link to="/signin"> Sign In </router-link>
-        </button>
+
+        <router-link v-if="!isLoggedIn" to="/signin">
+          <button
+            class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#edf1f1]"
+            type="button"
+          >
+            Sign In
+          </button>
+        </router-link>
       </div>
     </div>
     <div class="flex justify-center mx-auto">
@@ -71,4 +80,13 @@ input::placeholder {
 .right-bg {
   background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, #ff5c00 398.81%);
 }
+.text_nop {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 40px;
+}
+.texts {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', Times, serif;
+  font-size: 40px;
+}
 </style>
+

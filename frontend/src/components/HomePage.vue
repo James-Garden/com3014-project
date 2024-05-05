@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const userName = localStorage.getItem('username');
+const isLoggedIn = ref(userName !== null);
+</script>
 
 <template>
   <div class="flex w-full h-full relative">
@@ -22,13 +27,16 @@
       </div>
 
       <div class="absolute top-[40%] left-[10%]">
+        <!-- <img class="" src="../assets/dontok.png" alt="" srcset="" /> -->
         <p class="texts">Don’t know what to cook?</p>
         <p class="texts">Search by raw ingredients.</p>
+
         <div class="flex justify-center">
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
           >
-            <router-link to="/Raw"> Continue </router-link>
+            <router-link v-if="isLoggedIn" to="/Raw"> Continue </router-link>
+            <router-link v-if="!isLoggedIn" to="/signin"> Continue </router-link>
           </button>
         </div>
       </div>
@@ -37,11 +45,12 @@
     <!--  -->
     <div class="right-bg w-1/2 h-screen">
       <div class="flex justify-center gap-10 absolute right-3 top-2">
-        <p class="underline text-[34px]">
+        <p v-if="isLoggedIn" class="underline text-[34px]">Logout</p>
+        <p v-if="!isLoggedIn" class="underline text-[34px]">
           <router-link to="/signup"> Sign Up </router-link>
         </p>
 
-        <router-link to="/signin">
+        <router-link v-if="!isLoggedIn" to="/signin">
           <button
             class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#edf1f1]"
             type="button"
@@ -52,12 +61,15 @@
       </div>
 
       <div class="absolute top-[40%] right-[10%]">
-        <img class="" src="../assets/dobook.png" alt="" srcset="" />
+        <!-- <img class="" src="../assets/dobook.png" alt="" srcset="" /> -->
+        <p class="texts">Know what to cook?</p>
+        <p class="texts">Search by recipe.</p>
         <div class="flex justify-center">
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
           >
-            <router-link to="/Recipie"> Continue </router-link>
+            <router-link v-if="isLoggedIn" to="/Recipie"> Continue </router-link>
+            <router-link v-if="!isLoggedIn" to="/signin"> Continue </router-link>
           </button>
         </div>
       </div>
@@ -103,4 +115,17 @@ input::placeholder {
 .right-bg {
   background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, #ff5c00 398.81%);
 }
+.text_nop {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 40px;
+}
+.text_ok {
+  font-family: 'Newsreader', serif;
+  font-size: 64px;
+}
+.texts {
+  font-family: 'Newsreader', serif;
+  font-size: 40px;
+}
 </style>
+

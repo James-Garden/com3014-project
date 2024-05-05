@@ -54,4 +54,9 @@ input::placeholder {
   font-style: italic;
   text-align: center;
 }
+.text_nop {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 40px;
+}
 </style>
+

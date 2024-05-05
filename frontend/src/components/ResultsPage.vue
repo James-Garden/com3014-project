@@ -5,13 +5,13 @@
     <div class="pt-5 pl-5">
       <div>
         <button>
-            <router-link to="/"><p class="text_nop">Cupboard</p></router-link>
-          </button>
-        </div>
-        <div class="ml-5">
-          <button>
-            <router-link to="/"><p class="text_nop">Cookbook</p></router-link>
-          </button>
+          <router-link to="/"><p class="text_nop">Cupboard</p></router-link>
+        </button>
+      </div>
+      <div class="ml-5">
+        <button>
+          <router-link to="/"><p class="text_nop">Cookbook</p></router-link>
+        </button>
       </div>
     </div>
     <h1 class="text-center text-3xl font-serif mb-5">Search Results</h1>
@@ -130,4 +130,9 @@ input::placeholder {
 .rbgabgt {
   background-color: rgba(139, 69, 19, 0.1);
 }
+.text_nop {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 40px;
+}
 </style>
+
