@@ -12,7 +12,7 @@ const signInFailed = ref(false);  // Reactive property to track sign-in status
 async function signIn() {
   const signInSuccessful = await userStore.signIn(email.value, password.value);
   if (signInSuccessful) {
-    alert(`Signed in as ${userStore.currentUser?.username}`);
+    // alert(`Signed in as ${userStore.currentUser?.username}`);
     await router.push('/');
     signInFailed.value = false;  // Reset on successful sign-in
     return;
@@ -66,7 +66,7 @@ async function signIn() {
             placeholder="Password"
           />
         </div>
-        <p class="text-[#616161] pt-3">Forgot Password?</p>
+        <p class="text-[#616161] pt-3"><router-link to="/"><strong>Forgot Password?</strong></router-link></p>
         <p class="text-[#616161] pt-5 text-center">No account? Sign up <router-link to="/Signup"><strong>here</strong></router-link></p>
         <div class="flex justify-center mt-10">
           <button
