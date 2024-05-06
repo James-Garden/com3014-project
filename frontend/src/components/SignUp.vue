@@ -24,7 +24,7 @@ const emailError = computed(() => {
 async function signUp() {
   errors.value = await userStore.signUp(username.value, email.value, password.value);
   if (errors.value.length === 0) {
-    // alert(`Signed up as ${userStore.currentUser?.username}`);
+  // alert(`Signed up as ${userStore.currentUser?.username}`);
     await router.push('/');
     return;
   }
