@@ -1,4 +1,4 @@
-name: Build and Test User API
+name: Build Recipe API
 
 on:
   - push
@@ -8,12 +8,12 @@ permissions:
   checks: write
 
 jobs:
-  build-user-api:
+  build-recipe-api:
 
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./user-api
+        working-directory: ./recipe-api
 
     steps:
       - uses: actions/checkout@v3
@@ -24,5 +24,5 @@ jobs:
           distribution: 'temurin'
       - name: Make gradlew executable
         run: chmod +x ./mvnw
-      - name: Build and test with Gradle
-        run: ./mvnw test
+      - name: Build with Gradle
+        run: ./mvnw package
