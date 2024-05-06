@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type Ref, ref } from 'vue';
+import { type Ref, ref, computed } from 'vue';
 import { useUserStore } from '@/stores/UserStore';
 import type { ValidationError } from '@/apis/ValidationUtil';
 import { useRouter } from 'vue-router';
@@ -12,15 +12,24 @@ const email = ref('');
 const password = ref('');
 const errors: Ref<ValidationError[]> = ref([]);
 
+const emailError = computed(() => {
+  // Find an email-related error
+  const emailErr = errors.value.find(error => error.field === 'email');
+  // Customize message for specific backend error
+  if (emailErr && emailErr.message.includes("mustBeUnique")) {
+    return "The Email has been used";  // Custom message
+  }
+  return emailErr ? emailErr.message : '';
+});
 async function signUp() {
   errors.value = await userStore.signUp(username.value, email.value, password.value);
   if (errors.value.length === 0) {
-    alert(`Signed up as ${userStore.currentUser?.username}`);
+    // alert(`Signed up as ${userStore.currentUser?.username}`);
     await router.push('/');
     return;
   }
 
-  alert(`Found errors: ${errors.value}`);
+  // alert(`Found errors: ${errors.value}`);
   // TODO: Add error handling
 }
 </script>
@@ -63,6 +72,7 @@ async function signUp() {
             v-model="email"
             required
           />
+          <p v-if="emailError" class="error-messages">{{ emailError }}</p>
         </div>
         <div class="mt-10">
           <input
@@ -73,7 +83,6 @@ async function signUp() {
             placeholder="Password"
           />
         </div>
-
         <div class="flex justify-center mt-10">
           <button
             class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#9ae4ed]"
@@ -129,5 +138,13 @@ async function signUp() {
 
 .signin form button:hover {
   background-color: #0056b3;
+}
+.error-messages {
+  color: red;
+  margin-top: 5px;
+}
+
+.error-border {
+  border: 2px solid red;
 }
 </style>
