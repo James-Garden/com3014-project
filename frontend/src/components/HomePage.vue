@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useUserStore } from '@/stores/UserStore';
+const userStore = useUserStore();
+</script>
 
 <template>
   <div class="flex w-full h-full relative">
@@ -23,11 +26,18 @@
       <div class="absolute top-[40%] left-[10%]">
         <img class="" src="../assets/dontok.png" alt="" srcset="" />
         <div class="flex justify-center">
-          <button
-            class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
-          >
+          <template v-if="userStore.isLoggedIn">
+            <button
+            class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white">
             <router-link to="/Raw"> Continue </router-link>
           </button>
+        </template>
+        <template v-else>
+          <button
+            class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white">
+            <router-link to="/Signin"> Continue </router-link>
+          </button>
+        </template>
         </div>
       </div>
     </div>
@@ -35,28 +45,36 @@
     <!--  -->
     <div class="right-bg w-1/2 h-screen">
       <div class="flex justify-center gap-10 absolute right-3 top-2">
-        <p class="underline text-[34px]">
-          <router-link to="/signup"> Sign Up </router-link>
-        </p>
-
-        <router-link to="/signin">
-          <button
-            class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#edf1f1]"
-            type="button"
-          >
-            Sign In
-          </button>
-        </router-link>
+      <template v-if="userStore.isLoggedIn">
+        <div class="button-style username-box">
+      {{ userStore.currentUser?.username || 'No name' }}
+    </div>
+        <button @click="userStore.signOut" class="button-style">
+          Sign Out
+        </button>
+      </template>
+      <template v-else>
+        <router-link to="/signup"><button class="button-style">Sign Up</button></router-link>
+        <router-link to="/signin"><button class="button-style">Sign In</button></router-link>
+      </template>
       </div>
 
       <div class="absolute top-[40%] right-[10%]">
         <img class="" src="../assets/dobook.png" alt="" srcset="" />
         <div class="flex justify-center">
-          <button
-            class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
-          >
+          <template v-if="userStore.isLoggedIn">          
+            <button
+            class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white">
             <router-link to="/Recipie"> Continue </router-link>
           </button>
+        </template>
+        <template v-else>
+          <button
+            class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white">
+            <router-link to="/Signin"> Continue </router-link>
+          </button>
+        </template>
+
         </div>
       </div>
 
@@ -100,5 +118,20 @@ input::placeholder {
 }
 .right-bg {
   background: linear-gradient(178.54deg, rgba(255, 92, 0, 0) 1.24%, #ff5c00 398.81%);
+}
+.button-style, .username-box {
+  width: 110px; /* Adjust width as needed */
+  height: 65px; /* Adjust height as needed */
+  border: 4px solid black;
+  border-radius: 4px;
+  background-color: #edf1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* Remove if it is not clickable */
+}
+
+.username-box {
+  cursor: default; /* If it's not supposed to be clickable */
 }
 </style>

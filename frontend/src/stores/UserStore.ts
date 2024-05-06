@@ -6,6 +6,7 @@ import { SessionApi } from '@/apis/SessionApi';
 
 export const useUserStore = defineStore('user', () => {
   const currentUser: Ref<User | undefined> = ref();
+  const isLoggedIn = ref(false);
 
   async function signUp(
     username: string,
@@ -19,6 +20,7 @@ export const useUserStore = defineStore('user', () => {
     }
 
     currentUser.value = result;
+    isLoggedIn.value = true;
     await SessionApi.createSession(email, password);
 
     return [];
@@ -29,6 +31,7 @@ export const useUserStore = defineStore('user', () => {
     const wasSuccessful = 'id' in response;
     if (wasSuccessful) {
       currentUser.value = response;
+      isLoggedIn.value = true;
     }
 
     return wasSuccessful;
@@ -37,8 +40,9 @@ export const useUserStore = defineStore('user', () => {
   async function signOut() {
     await SessionApi.deleteSession();
     currentUser.value = undefined;
+    isLoggedIn.value = false;
     document.cookie = 'SessionID' + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   }
 
-  return { signUp, signIn, signOut, currentUser };
+  return { signUp, signIn, signOut, currentUser, isLoggedIn };
 });
