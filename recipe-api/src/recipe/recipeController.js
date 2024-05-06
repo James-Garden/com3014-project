@@ -1,7 +1,20 @@
-import recipe from "recipe.js";
+const Recipe = require("recipe.js");
+const asyncHandler = require("express-async-handler");
 
-const getAllRecipes = (req) => {};
+// GET: Return all recipes
+exports.getAllRecipes = asyncHandler(async (req, res, next) => {});
 
-const getRecipe = (req) => {};
+// GET: Return a specified recipe by id
+exports.getRecipe = asyncHandler(async (req, res, next) => {});
 
-const searchRecipes = (req) => {};
+// GET: Search for a recipe
+exports.searchRecipes = asyncHandler(async (req, res, next) => {});
+
+// GET: Retrieves saved recipes from Session API
+exports.getSavedRecipes = asyncHandler(async (req, res, next) => {});
+
+// POST: Save a recipe to Session API
+exports.saveRecipe = asyncHandler(async (req, res, next) => {});
+
+// DELETE: Unsave a recipe in Session API
+exports.unsaveRecipe = asyncHandler(async (req, res, next) => {});
