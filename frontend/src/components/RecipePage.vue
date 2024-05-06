@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-<script setup lang="ts"></script>
-=======
 <script setup lang="ts">
 import { ref } from 'vue';
 import HeaderApp from './HeaderApp.vue';
@@ -8,7 +5,6 @@ import HeaderApp from './HeaderApp.vue';
 const userName = localStorage.getItem('username');
 const isLoggedIn = ref(userName !== null);
 </script>
->>>>>>> Stashed changes
 
 <template>
   <div class="w-full relative left-bg h-screen">
@@ -16,27 +12,6 @@ const isLoggedIn = ref(userName !== null);
       <div class="pt-5 pl-5">
         <div>
           <button>
-<<<<<<< Updated upstream
-            <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
-          </button>
-        </div>
-        <div class="ml-5">
-          <button>
-            <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
-          </button>
-        </div>
-      </div>
-      <div class="flex justify-center gap-10 absolute right-3 top-2">
-        <p class="underline text-[34px]">
-          <router-link to="/signup"> Sign Up </router-link>
-        </p>
-        <button
-          class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#edf1f1]"
-          type="submit"
-        >
-          <router-link to="/signin"> Sign In </router-link>
-        </button>
-=======
           <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
         </button>
       </div>
@@ -50,7 +25,6 @@ const isLoggedIn = ref(userName !== null);
         <div class="w-full">
           <HeaderApp />
         </div>
->>>>>>> Stashed changes
       </div>
 
       <div class="mt-20 flex justify-center pl-60">

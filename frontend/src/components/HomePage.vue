@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-<script setup lang="ts"></script>
-=======
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -16,7 +13,6 @@ const logout = () => {
   router.push('/');
 };
 </script>
->>>>>>> Stashed changes
 
 <template>
   <div class="flex w-full h-full relative">
@@ -24,15 +20,6 @@ const logout = () => {
       <div class="pt-5 pl-5">
         <div>
           <button>
-<<<<<<< Updated upstream
-            <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
-          </button>
-        </div>
-        <div class="ml-5">
-          <button>
-            <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
-          </button>
-=======
           <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
         </button>
       </div>
@@ -40,18 +27,11 @@ const logout = () => {
         <button>
           <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
         </button>
->>>>>>> Stashed changes
         </div>
       </div>
 
       <div class="absolute left-[20%] mt-10 px-10">
         <img class="w-[894px] h-[77px]" src="../assets/Simplif.png" alt="" srcset="" />
-<<<<<<< Updated upstream
-      </div>
-
-      <div class="absolute top-[40%] left-[10%]">
-        <img class="" src="../assets/dontok.png" alt="" srcset="" />
-=======
         <!-- <p class="text_ok">Simplify the Cooking experience.</p> -->
       </div>
 
@@ -60,7 +40,6 @@ const logout = () => {
        <!-- <p class="texts">Don’t know what to cook?</p>
         <p class="texts">Search by raw ingredients.</p>-->
 
->>>>>>> Stashed changes
         <div class="flex justify-center">
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
@@ -73,25 +52,6 @@ const logout = () => {
 
     <!--  -->
     <div class="right-bg w-1/2 h-screen">
-<<<<<<< Updated upstream
-      <div class="flex justify-center gap-10 absolute right-3 top-2">
-        <p class="underline text-[34px]">
-          <router-link to="/signup"> Sign Up </router-link>
-        </p>
-
-        <router-link to="/signin">
-          <button
-            class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#edf1f1]"
-            type="button"
-          >
-            Sign In
-          </button>
-        </router-link>
-      </div>
-
-      <div class="absolute top-[40%] right-[10%]">
-        <img class="" src="../assets/dobook.png" alt="" srcset="" />
-=======
       <div class="flex w-full justify-center gap-10 absolute right-3 top-2">
         <HeaderApp />
       </div>
@@ -100,7 +60,6 @@ const logout = () => {
        <img class="" src="../assets/dobook.png" alt="" srcset="" /> 
         <!-- <p class="texts">Know what to cook?</p>
         <p class="texts">Search by recipe.</p> -->
->>>>>>> Stashed changes
         <div class="flex justify-center">
           <button
             class="w-[168px] h-[40px] mt-8 text-[#00635D] text-[18px] border-[1px] border-[#004E49] rounded-[25px] bg-white"
