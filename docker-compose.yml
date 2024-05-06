@@ -33,6 +33,7 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: ${REDIS_PORT}
       REDIS_PASSWORD: ${REDIS_PASSWORD}
+      CORS_PERMITTED_URLS: http://localhost:4000/
 
   frontend:
     build:
