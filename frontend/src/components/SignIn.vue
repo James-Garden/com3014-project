@@ -9,11 +9,24 @@ const email = ref('');
 const password = ref('');
 
 async function signIn() {
+<<<<<<< Updated upstream
   const signInSuccessful = await userStore.signIn(email.value, password.value);
   if (signInSuccessful) {
     alert(`Signed in as ${userStore.currentUser?.username}`);
     await router.push('/');
     return;
+=======
+  var dataName = localStorage.getItem('username');
+  var dataEmail = localStorage.getItem('email');
+  var dataPassword = localStorage.getItem('password');
+  if (dataEmail == email.value && dataPassword == password.value) {
+    alert('login successful');
+    setTimeout(() => {
+      router.push('/');
+    }, 400);
+  } else {
+    alert('vui lòng nhập đúng email , password');
+>>>>>>> Stashed changes
   }
 
   // TODO: Handle incorrect details better

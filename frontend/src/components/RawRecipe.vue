@@ -6,6 +6,7 @@
       <div class="pt-5 pl-5">
         <div>
           <button>
+<<<<<<< Updated upstream
             <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
           </button>
         </div>
@@ -13,6 +14,15 @@
           <button>
             <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
           </button>
+=======
+          <router-link to="/"><img src="../assets/Cupboard.png" alt="" /></router-link>
+        </button>
+      </div>
+      <div class="ml-5">
+        <button>
+          <router-link to="/"><img src="../assets/Cookbook.png" alt="" /></router-link>
+        </button>
+>>>>>>> Stashed changes
         </div>
       </div>
       <div class="flex justify-center gap-10 absolute right-3 top-2">
@@ -28,7 +38,12 @@
       </div>
     </div>
     <div class="flex justify-center mx-auto">
+<<<<<<< Updated upstream
       <img class="w-[732px] h-[77px] block" src="../assets/addraw.png" alt="" srcset="" />
+=======
+      <img class="w-[732px] h-[77px] block" src="../assets/addraw.png" alt="" srcset="" /> 
+      <!-- <p class="texts">Add raw ingredients to your virtual pantry.</p> -->
+>>>>>>> Stashed changes
     </div>
     <div class="mt-10 flex justify-center">
       <div>
