@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -48,5 +49,26 @@ class RecipeController {
     List<Recipe> recipes = recipeService.searchRecipes(filters.name(), filters.ingredients(), filters.difficulty(), filters.dietaryRestrictions());
     return ResponseEntity.ok(recipes);
   }
+
+  // Must request Session microservice to verify the current session
+  @GetMapping("/saved")
+  ResponseEntity<GetRecipesResponse> getSavedRecipes(@RequestBody GetRecipesRequest request) {
+    List<Recipe> recipes = recipeService.getSavedRecipes(request.sessionId(), request.userId());
+    if(recipes == null) {
+      return ResponseEntity.badRequest().build();
+    }
+    return ResponseEntity.ok(new GetRecipesResponse(recipes));
+  }
+
+  // Must request Session microservice to verify the current session
+  @PostMapping("/saved")
+  ResponseEntity<SaveRecipeResponse> saveRecipe(@RequestBody RecipeRequest request) {
+    Optional<Recipe> recipe = recipeService.saveRecipe(request.sessionId(), request.userId(), request.recipeId());
+    if (recipe == null) {
+      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new SaveRecipeResponse(null, false));
+    }
+    return ResponseEntity.ok(new SaveRecipeResponse(recipe.get(), true));
+  }
+  
 
 }
