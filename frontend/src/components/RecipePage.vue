@@ -42,8 +42,7 @@ const userStore = useUserStore();
           type="text"
           id="text"
           class="!w-[914px] !h-[49px] rounded-md pl-5"
-          placeholder="Search by Recipe"
-        />
+          placeholder="Search by Recipe"/>
       </div>
       <div class="bg-white w-[150px] shadow-2xl !h-[49px] border-[2px] border-[#8e8b8b]">
         <p class="text-md text-center items-center pt-3">Filter</p>

@@ -42,8 +42,7 @@ const userStore = useUserStore();
           id="password"
           class="!w-[914px] !h-[49px] rounded-md pl-5"
           placeholder="Search by Ingredient"
-          readonly
-        />
+          readonly/>
         <div class="bg-white w-[250px] rounded-md shadow-2xl h-[200px] mt-10">
           <p class="p-4 text-md">Grated Cheese</p>
           <p class="pl-4 text-md">Rice</p>

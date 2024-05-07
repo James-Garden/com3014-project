@@ -71,8 +71,7 @@ async function signIn() {
         <div class="flex justify-center mt-10">
           <button
             class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#f5bfa0]"
-            type="submit"
-          >
+            type="submit">
             Sign In
           </button>
         </div>

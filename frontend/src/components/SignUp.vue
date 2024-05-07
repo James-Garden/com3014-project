@@ -60,8 +60,7 @@ async function signUp() {
             id="email"
             placeholder="Username"
             v-model="username"
-            required
-          />
+            required/>
         </div>
         <div class="mt-10">
           <input
@@ -70,8 +69,7 @@ async function signUp() {
             id="email"
             placeholder="Email"
             v-model="email"
-            required
-          />
+            required/>
           <p v-if="emailError" class="error-messages">{{ emailError }}</p>
         </div>
         <div class="mt-10">
@@ -80,14 +78,12 @@ async function signUp() {
             id="password"
             v-model="password"
             class="!w-[914px] !h-[49px] rounded-md pl-5"
-            placeholder="Password"
-          />
+            placeholder="Password"/>
         </div>
         <div class="flex justify-center mt-10">
           <button
             class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#9ae4ed]"
-            type="submit"
-          >
+            type="submit">
             Sign Up
           </button>
         </div>
