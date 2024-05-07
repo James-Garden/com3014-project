@@ -32,8 +32,7 @@ const userStore = useUserStore();
     </div>
     <div class="flex justify-center">
       <div
-        class="w-[800px] h-[500px] flex rounded-md shadow-xl bg-[#fdd1b7] border border-[#645b5b]"
-      >
+        class="w-[800px] h-[500px] flex rounded-md shadow-xl bg-[#fdd1b7] border border-[#645b5b]">
         <div class="w-1/2 pt-10">
           <p class="text-[31px] text-center font-serif">Cheese Quesadilla</p>
           <div class="mt-8 text-[26px] text-center underline font-serif">Ingredients</div>
