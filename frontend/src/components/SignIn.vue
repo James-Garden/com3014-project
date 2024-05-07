@@ -1,23 +1,25 @@
 <script setup lang="ts">
-import { useUserStore } from '@/stores/UserStore';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/UserStore';
 
 const userStore = useUserStore();
 const router = useRouter();
 const email = ref('');
 const password = ref('');
+const signInFailed = ref(false);  // Reactive property to track sign-in status
 
 async function signIn() {
   const signInSuccessful = await userStore.signIn(email.value, password.value);
   if (signInSuccessful) {
-    alert(`Signed in as ${userStore.currentUser?.username}`);
+    // alert(`Signed in as ${userStore.currentUser?.username}`);
     await router.push('/');
+    signInFailed.value = false;  // Reset on successful sign-in
     return;
   }
 
-  // TODO: Handle incorrect details better
-  alert('Incorrect email or password');
+  signInFailed.value = true;  // Set to true if sign-in fails
+  // alert('Incorrect email or password');
 }
 </script>
 
@@ -40,8 +42,12 @@ async function signIn() {
     </div>
     <div class="flex mt-12 justify-center">
       <form @submit.prevent="signIn">
+        <p v-if="signInFailed" class="error-message">
+          Incorrect email or password.
+        </p>
         <div>
           <input
+            :class="{'input-error': signInFailed}"
             class="!w-[914px] !h-[49px] rounded-md pl-5"
             type="email"
             id="email"
@@ -52,6 +58,7 @@ async function signIn() {
         </div>
         <div class="mt-10">
           <input
+            :class="{'input-error': signInFailed}"
             type="password"
             id="password"
             v-model="password"
@@ -59,13 +66,12 @@ async function signIn() {
             placeholder="Password"
           />
         </div>
-        <p class="text-[#616161] pt-3">Forgot Password?</p>
-        <p class="text-[#616161] pt-5 text-center">No account? Sign up here</p>
+        <p class="text-[#616161] pt-3"><router-link to="/"><strong>Forgot Password?</strong></router-link></p>
+        <p class="text-[#616161] pt-5 text-center">No account? Sign up <router-link to="/Signup"><strong>here</strong></router-link></p>
         <div class="flex justify-center mt-10">
           <button
             class="w-[110px] h-[65px] border border-[4px] border-[#000000] rounded-md bg-[#f5bfa0]"
-            type="submit"
-          >
+            type="submit">
             Sign In
           </button>
         </div>
@@ -116,5 +122,12 @@ async function signIn() {
 
 .signin form button:hover {
   background-color: #0056b3;
+}
+.input-error {
+  border: 2px solid red;  
+}
+.error-message {
+  color: red;             
+  margin-top: 10px;       
 }
 </style>
