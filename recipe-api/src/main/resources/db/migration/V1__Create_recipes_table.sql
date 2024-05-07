@@ -1,9 +1,9 @@
 CREATE TABLE recipes (
-    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    name CHAR(60)            NOT NULL,
-    ingredients VARCHAR(300) NOT NULL,
-    difficulty CHAR(15)      NOT NULL,
-    dietary_restrictions CHAR(50)
+    id                   INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name                 TEXT NOT NULL,
+    ingredients          TEXT NOT NULL,
+    difficulty           TEXT NOT NULL,
+    dietary_restrictions TEXT
 );
 
 INSERT INTO recipes (name, ingredients, difficulty, dietary_restrictions)
