@@ -35,11 +35,25 @@ services:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
       CORS_PERMITTED_URLS: http://localhost:4000/
 
+  recipe-api:
+    build: ./recipe-api
+    depends_on:
+      - postgres-db
+    ports:
+      - target: 8080
+        published: 8082
+    environment:
+      DB_URL: jdbc:postgresql://postgres-db:${DB_PORT}/${DB_NAME}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      CORS_PERMITTED_URLS: http://localhost:4000/
+
   frontend:
     build:
       context: ./frontend
       args:
         VITE_USER_API_URL: http://localhost:8081/api
+        VITE_RECIPE_API_URL: http://localhost:8082/
     ports:
       - target: 8080
         published: 4000
