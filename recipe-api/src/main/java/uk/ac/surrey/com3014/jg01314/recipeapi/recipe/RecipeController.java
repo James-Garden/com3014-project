@@ -34,8 +34,8 @@ class RecipeController {
   }
 
   @GetMapping("/{id}")
-  ResponseEntity<Recipe> getRecipe(@PathVariable @Pattern(regexp = "^[0-9]+$") String id) {
-    Optional<Recipe> recipe = recipeService.getRecipeById(Integer.parseInt(id));
+  ResponseEntity<Recipe> getRecipe(@PathVariable Integer id) {
+    Optional<Recipe> recipe = recipeService.getRecipeById(id);
     
     if (recipe.isPresent()) {
       return ResponseEntity.ok(recipe.get());
@@ -65,9 +65,9 @@ class RecipeController {
   ResponseEntity<SaveRecipeResponse> saveRecipe(@RequestBody RecipeRequest request) {
     Optional<Recipe> recipe = recipeService.saveRecipe(request.sessionId(), request.userId(), request.recipeId());
     if (recipe == null) {
-      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new SaveRecipeResponse(null, false));
+      return ResponseEntity.badRequest().build();
     }
-    return ResponseEntity.ok(new SaveRecipeResponse(recipe.get(), true));
+    return ResponseEntity.ok(new SaveRecipeResponse(recipe.get()));
   }
   
 
